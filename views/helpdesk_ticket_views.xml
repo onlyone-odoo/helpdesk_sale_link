@@ -16,10 +16,8 @@
                     <field string="Órdenes de Venta" name="so_count" widget="statinfo" />
                 </button>
             </xpath>
-            <xpath expr="//group[@name='ticket_details']" position="after">
-                <group name="sales_info" string="Ventas">
+            <xpath expr="//field[@name='email_cc']" position="after">
                     <field name="sale_order_ids" widget="many2many_tags" />
-                </group>
             </xpath>
         </field>
     </record>
