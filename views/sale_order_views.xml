@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="groups_id" eval="[(6, 0, [ref('helpdesk.group_helpdesk_user')])]" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='order_details']" position="after">
+                <group name="helpdesk_info" string="Soporte">
+                    <field name="ticket_ids" widget="many2many_tags" />
+                </group>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="%(helpdesk_sale_link.action_helpdesk_ticket)d"
+                    type="action"
+                    class="oe_stat_button"
+                    icon="fa-ticket"
+                >
+                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_helpdesk_ticket" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('sale_order_ids', 'in', active_id)]</field>
+        <field name="context">{'default_sale_order_ids': [(4, active_id)]}</field>
+    </record>
+</odoo>
