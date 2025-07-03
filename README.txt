@@ -14,7 +14,7 @@ Helpdesk Sale Link
 
 |badge1| |badge2| |badge3|
 
-This module extends the functionality of Odoo Enterprise Helpdesk and Sales modules to support linking helpdesk tickets with sale orders, allowing users to navigate between related records using smart buttons.
+This module extends the functionality of Odoo Enterprise Helpdesk and Sales modules to allow linking helpdesk tickets with sale orders through Many2many fields displayed in their respective forms.
 
 **Table of contents**
 
@@ -24,9 +24,8 @@ This module extends the functionality of Odoo Enterprise Helpdesk and Sales modu
 Usage
 =====
 
-1. Go to **Helpdesk > Tickets**, open a ticket, and use the "Órdenes de Venta" smart button to view or link related sale orders.
-2. Go to **Sales > Orders**, open a sale order, and use the "Tickets" smart button to view or link related helpdesk tickets.
-3. In the sale order form, you can add or view linked tickets in the "Soporte" section using the tags widget.
+1. Go to **Helpdesk > Tickets**, open a ticket, and add or view related sale orders in the "Órdenes de Venta" field (visible to sales users).
+2. Go to **Sales > Orders**, open a sale order, and add or view related helpdesk tickets in the "Soporte" section (visible to helpdesk users).
 
 Known issues / Roadmap
 ======================
