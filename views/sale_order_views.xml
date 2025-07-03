@@ -3,7 +3,6 @@
     <record id="view_order_form" model="ir.ui.view">
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
-        <field name="groups_id" eval="[(6, 0, [ref('helpdesk.group_helpdesk_user')])]" />
         <field name="arch" type="xml">
             <xpath expr="//group[@name='order_details']" position="after">
                 <group name="helpdesk_info" string="Soporte">
@@ -16,6 +15,8 @@
                     type="action"
                     class="oe_stat_button"
                     icon="fa-ticket"
+                    groups="sales_team.group_sale_salesman"
+
                 >
                     <field string="Tickets" name="ticket_count" widget="statinfo" />
                 </button>
